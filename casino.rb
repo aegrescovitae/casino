@@ -32,8 +32,4 @@ class Casino
 	end
 end
 
-
-
-
-
 casino = Casino.new

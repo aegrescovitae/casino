@@ -2,6 +2,7 @@ require_relative 'player'
 
 class HiLo
   def initialize(player)
+    @player = player
     puts "Welcome to HiLo #{player.name}!"
     puts "Wallet: #{player.wallet.amount}"
     enter_bet
@@ -19,6 +20,9 @@ def enter_bet
   puts "Please enter your bet:"
   print "> "
   @bet = gets.strip.to_i
+  if @bet == 'exit'
+    exit_to_game_choice
+  end
   new_hilo
 end
 
@@ -27,44 +31,50 @@ def new_hilo
   puts "Is the next number higher or lower than #{@num_1}?"
   input = gets.strip
   case input
+  when 'exit'
+    exit_to_game_choice
   when 'higher'
-    puts "Second Numer: #{@num_2}"
+    puts "Second Number: #{@num_2}"
     if @num_1 < @num_2
-      puts "YOU'RE CORRECT"
-    elsif @num1 > @num_2
-      puts "REKT"
+      winner
+    elsif @num_1 > @num_2
+      rekt
     else
-      new_hilo
+      puts "Enter Higher or Lower"
+      enter_bet
     end
   when 'lower'
     puts "Second Number: #{@num_2}"
     if @num_1 > @num_2
-      puts "YOU'RE CORRECT"
       winner
-      new_hilo
     elsif @num_1 < @num_2
-      puts "REKT"
       rekt
-      new_hilo
     else
-      new_hilo
+      enter_bet
     end
   else
     puts "Bad input, try again!"
-    new_hilo
+    enter_bet
   end
 end
 
 def winner
-  player.wallet.amount = player.wallet.amount + @bet
-  puts "Wallet: #{player.wallet.amount}"
+  puts "WINNER!"
+  @player.wallet.amount = @player.wallet.amount + @bet
+  puts "Wallet: #{@player.wallet.amount}"
+  enter_bet
 end
 
 def rekt
-  player.wallet.amount = player.wallet.amount - @bet
-  puts "Wallet: #{player.wallet.amount}"
+  puts "REKT"
+  @player.wallet.amount = @player.wallet.amount - @bet
+  puts "Wallet: #{@player.wallet.amount}"
+  enter_bet
 end
 
+def exit_to_game_choice
+  @game_choice
+end
 
 
 
