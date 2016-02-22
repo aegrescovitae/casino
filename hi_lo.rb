@@ -8,8 +8,13 @@ class HiLo
   end
 end
 
+#def player
+#  player = @players.name
+#end
+
 def menu
   puts "-- WELCOME TO HIGH-LOW --"
+  puts "HELLO #{@players}"
   random_numbers
   input_bet
 end

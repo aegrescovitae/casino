@@ -1,5 +1,6 @@
 require 'pry'
 require_relative 'player'
+require_relative 'game_menu'
 
 class Casino
 	attr_accessor :players
@@ -19,9 +20,9 @@ class Casino
 		players.each do |player|
 			puts player.name
 			puts player.wallet.show_wallet
+			game_menu
 		end
 	end
-
 end
 
 casino = Casino.new
