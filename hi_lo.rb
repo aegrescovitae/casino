@@ -73,7 +73,7 @@ def rekt
 end
 
 def exit_to_game_choice
-  @game_choice
+  
 end
 
 
