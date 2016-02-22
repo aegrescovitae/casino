@@ -1,7 +1,18 @@
 require_relative 'casino'
 
+def slots_start
+	
+
+	@slots_numbers = [rand(1..3), rand(1..3), rand(1..3)]
+	puts @slots_numbers
+
+
+
+end
+
+
 class Slots
-	attr_accessor :
+	attr_accessor :name, :wallet, :player
 
 	def initialize
 		puts "Welcome to Slots! Please enter your wager/bet:"
@@ -16,16 +27,6 @@ class Slots
 			end
 		puts "Here are you numbers #{@slots_numbers}"
 	end
-end
-
-def slots_start
-	
-
-	@slots_numbers = [rand(1..3), rand(1..3), rand(1..3)]
-	puts @slots_numbers
-
-
-
 end
 
 
