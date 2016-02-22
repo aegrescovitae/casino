@@ -20,8 +20,8 @@ class Casino
 		players.each do |player|
 			puts player.name
 			puts player.wallet.show_wallet
-			game_menu
 		end
+		main_menu
 	end
 end
 
