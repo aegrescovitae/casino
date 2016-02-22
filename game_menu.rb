@@ -13,7 +13,7 @@ end
 def menu_logic
     case @game_menu_input
         when 1
-            hi_lo_menu
+            HiLo.new(player)
         when 2
             ##
         else
