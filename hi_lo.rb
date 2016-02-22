@@ -8,17 +8,6 @@ class HiLo
   end
 end
 
-def player
- player = @players.name
-end
-
-def menu
-  puts "-- WELCOME TO HIGH-LOW --"
-  puts "HELLO #{@players}"
-  random_numbers
-  input_bet
-end
-
 def random_numbers
   random_numbers = rand(1..101)
   @num_1 = random_numbers
