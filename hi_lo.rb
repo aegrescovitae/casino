@@ -1,4 +1,4 @@
-# require_relative 'player'
+require_relative 'player'
 
 class HiLo
   attr_accessor :num_1, :num_2
@@ -6,6 +6,10 @@ class HiLo
     @num_1 = num_1
     @num_2 = num_2
   end
+end
+
+def player
+ player = @players.name
 end
 
 def menu
