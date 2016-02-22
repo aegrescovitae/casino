@@ -1,28 +1,39 @@
 require 'pry'
 require_relative 'player'
-require_relative 'game_menu'
+require_relative 'hi_lo'
 
 class Casino
-	attr_accessor :players
+	attr_accessor :player
 
 	def initialize
-		@players = []
 		puts "Welcome to the casino!"
-		puts "How many players do you want?"
-		num_players = gets.to_i
-		num_players.times do
-			@players << Player.new
-		end
-		show_players
+		@player = Player.new
+		game_menu
 	end
 
-	def show_players
-		players.each do |player|
-			puts player.name
-			puts player.wallet.show_wallet
+	def game_menu
+		puts "-- GAMES --"
+		puts "1: HiLo"
+		puts "2: Exit"
+		game_choice
+	end
+
+	def game_choice
+		input = gets.strip.to_i
+		case input
+		when 1
+			HiLo.new(player)
+		when 2
+			exit
+		else
+			puts "Please Enter 1 or 2"
+			game_choice
 		end
-		main_menu
 	end
 end
+
+
+
+
 
 casino = Casino.new

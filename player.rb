@@ -3,10 +3,9 @@ require_relative 'wallet'
 class Player
 	attr_accessor :wallet, :name
 	def initialize
-		puts "What is your name?"
+		puts "Please enter your name:"
+		print "> "
 		@name = gets.strip
-		puts "What is your wallet amount?"
-		amount = gets.to_f
-		@wallet = Wallet.new(amount)
+		@wallet = Wallet.new
 	end
 end
