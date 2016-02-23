@@ -9,23 +9,7 @@ class Black_Hand
   @player = player
   play_game
   end
-   def start
-    puts "Welcome to Slots #{@player.name}!"
-    puts "Your wallet currently has $#{@player.wallet.amount}"
-    puts "Please enter your bet/wager:"
-    @bet_black = gets.strip.to_f
-    if @player.wallet.amount < @bet_black
-      puts "****************************************"
-      puts "You cannnot bet more money than you have. If you try to rip this Casino off"
-      puts "the mafia will break your legs and pillage your village with the"
-      puts "wrath of a thousand empires, and you will know pain."
-      puts "Please make another wager...."
-      puts "****************************************"
-      start
-    else
-      play
-    end
-  end
+   
 
   def play_game
     
@@ -190,6 +174,19 @@ class Black_Hand
       end
   end
 
+  def start
+    puts "Your wallet currently has $#{@player.wallet.amount}"
+    puts "Please enter your bet"
+    @bet_black = gets.strip.to_f
+    if player.wallet.amount < @bet_black
+      puts "****************************************"
+      puts "You cannnot bet more money than you have."
+      puts "****************************************"
+      start
+    else
+      play
+    end
+  end
 end
 
 
