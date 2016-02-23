@@ -43,7 +43,7 @@ class Casino
 	end
 
 	def random_event
-		rand_num = rand(1..10)
+		rand_num = rand(1..20)
 		if rand_num == 5
 			puts "You fall down the stairs, break your neck, and die :-("
 		elsif rand_num == 6
