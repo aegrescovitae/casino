@@ -1,6 +1,7 @@
 require 'pry'
 require_relative 'player'
 require_relative 'hi_lo'
+require_relative 'hi_low_cards'
 
 class Casino
 	attr_accessor :player
@@ -14,8 +15,9 @@ class Casino
 	def game_menu
 		puts "-- GAMES --"
 		puts "1: HiLo"
-		puts "2: Wallet"
-		puts "3: Exit"
+		puts "2: HiLo With Cards"
+		puts "3: Wallet"
+		puts "4: Exit"
 		random_event
 	end
 
@@ -25,8 +27,10 @@ class Casino
 		when 1
 			HiLo.new(player)
 		when 2
-			puts "Wallet: $#{player.wallet.amount}"
+			HiLoCards.new(player)
 		when 3
+			puts "Wallet: $#{player.wallet.amount}"
+		when 4
 			exit
 		else
 			puts "Please Enter 1, 2 or 3!"
@@ -40,7 +44,6 @@ class Casino
 			puts "You fall down the stairs, break your neck, and die :-("
 		elsif rand_num == 6
 			puts "You find $100 in your pocket!"
-			print "> "
 			player.wallet.amount = player.wallet.amount + 100
 			game_choice
 		else
