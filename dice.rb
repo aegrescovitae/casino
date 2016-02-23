@@ -18,3 +18,6 @@ class Dice
     total
   end
 end
+
+# puts Dice.new(6).roll
+# puts Dice.new(6).roll
