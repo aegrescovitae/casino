@@ -71,21 +71,3 @@ def rekt
   puts "Wallet: #{@player.wallet.amount}"
   enter_bet
 end
-
-def exit_to_game_choice
-
-end
-
-
-
-
-
-
-# HighLo
-# place a bet
-# player picks a number between 1 - 100
-# validate the input is between 1 - 100
-# have computer pick a random between 1 - 100
-# whos higher
-# calculate wins / loss
-# rebalance wallet

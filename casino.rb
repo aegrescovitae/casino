@@ -12,7 +12,6 @@ class Casino
 	end
 
 	def game_menu
-
 		puts "-- GAMES --"
 		puts "1: HiLo"
 		puts "2: Wallet"
@@ -43,8 +42,6 @@ class Casino
 			game_choice
 		end
 	end
-
-
 end
 
 casino = Casino.new
