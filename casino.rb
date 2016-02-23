@@ -38,6 +38,11 @@ class Casino
 		rand_num = rand(1..10)
 		if rand_num == 5
 			puts "You fall down the stairs, break your neck, and die :-("
+		elsif rand_num == 6
+			puts "You find $100 in your pocket!"
+			print "> "
+			player.wallet.amount = player.wallet.amount + 100
+			game_choice
 		else
 			game_choice
 		end
