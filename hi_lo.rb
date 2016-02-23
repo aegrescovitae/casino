@@ -19,11 +19,11 @@ end
 def enter_bet
   puts "Please enter your bet:"
   print "> "
-  @bet = gets.strip.to_i
-  if @bet == 'exit'
-    exit_to_game_choice
+  @bet = gets.strip
+  if @bet != 'exit'
+    @bet = @bet.to_i
+    new_hilo
   end
-  new_hilo
 end
 
 def new_hilo
@@ -32,7 +32,7 @@ def new_hilo
   input = gets.strip
   case input
   when 'exit'
-    exit_to_game_choice
+
   when 'higher'
     puts "Second Number: #{@num_2}"
     if @num_1 < @num_2
@@ -73,7 +73,7 @@ def rekt
 end
 
 def exit_to_game_choice
-  
+
 end
 
 
