@@ -10,17 +10,17 @@ class HiLoCards
 end
 
 def random_card_1
-  new_deck = Deck.new
+  new_deck_1 = Deck.new
   random_number = rand(1..53)
-  @random_card_1 = new_deck.cards[random_number]
+  @random_card_1 = new_deck_1.cards[random_number]
   puts "Card 1: #{@random_card_1.rank} #{@random_card_1.suit}"
   higher_or_lower
 end
 
 def random_card_2
-  new_deck = Deck.new
+  new_deck_2 = Deck.new
   random_number = rand(1..53)
-  @random_card_2 = new_deck.cards[random_number]
+  @random_card_2 = new_deck_2.cards[random_number]
   puts "Card 2: #{@random_card_2.rank} #{@random_card_2.suit}"
 end
 
