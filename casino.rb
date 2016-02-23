@@ -1,15 +1,17 @@
+require 'colorize'
 require 'pry'
 require_relative 'player'
 require_relative 'hi_low_numbers'
 require_relative 'hi_low_cards'
 require_relative 'hi_low_die'
 require_relative 'slots'
+require_relative 'blackjack_hand'
 
 class Casino
 	attr_accessor :player
 
 	def initialize
-		puts "Welcome to the casino!"
+    puts "Welcome to the " + "Casino!".colorize(:blue)
 		@player = Player.new
 		game_menu
 	end
@@ -20,8 +22,9 @@ class Casino
 		puts "2: HiLo With Cards"
 		puts "3: HiLo With Dice"
 		puts "4: Slots"
-		puts "5: Wallet"
-		puts "6: Exit"
+    puts "5: Black Jack"
+		puts "6: Wallet"
+		puts "7: Exit"
 		random_event
 	end
 
@@ -36,11 +39,13 @@ class Casino
 			HiLoDie.new(player)
 		when 4
 			Slots.new(player)
-		when 5
+    when 5
+      Black_Hand.new(player)
+		when 6
       puts "------------------------------"
       puts "Wallet: $#{player.wallet.amount.to_f}"
       puts "------------------------------"
-		when 6
+		when 7
 			exit
 		else
 			puts "Please Enter a valid choice!"

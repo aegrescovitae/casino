@@ -1,3 +1,4 @@
+require 'colorize'
 require_relative 'deck'
 require_relative 'player'
 
@@ -68,14 +69,14 @@ class HiLoCards
   end
 
   def winner
-    puts "WINNER!"
+    puts "WINNER!".colorize(:green)
     @player.wallet.amount = @player.wallet.amount + @bet
     puts "Wallet: #{@player.wallet.amount}"
     menu_options
   end
 
   def rekt
-    puts "REKT"
+    puts "REKT".colorize(:red)
     @player.wallet.amount = @player.wallet.amount - @bet
     puts "Wallet: #{@player.wallet.amount}"
     menu_options
