@@ -1,13 +1,20 @@
 class Dice
-  attr_accessor :die_1 :die_2
-  def initialize
-    random = rand(1..7)
-    @die_1 = random
-    random = rand(1..7)
-    @die_2 = random
+
+  def initialize(sides)
+    @sides = sides
+  end
+
+  def roll(number=1)
+    roll_array = []
+    number.times do
+      roll_value = rand(@sides) + 1
+      roll_array << roll_value
+    end
+    total = 0
+    roll_array.each do |roll|
+      new_total = total + roll
+      total = new_total
+    end
+    total
   end
 end
-
-dice = Dice.new
-puts "Die 1: #{@die_1}"
-puts "Die 2: #{@die_2}"

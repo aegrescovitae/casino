@@ -33,7 +33,7 @@ class Casino
 		when 4
 			exit
 		else
-			puts "Please Enter 1, 2 or 3!"
+			puts "Please Enter a valid choice!"
 		end
 		game_menu
 	end
