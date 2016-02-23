@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 require_relative 'hi_lo'
-require_relative 'Slots'
+require_relative 'slots'
 
 class Game_Menu
 
@@ -24,3 +28,7 @@ class Game_Menu
 		main_menu
 	end
 end
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
