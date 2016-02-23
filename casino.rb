@@ -45,9 +45,13 @@ class Casino
 	def random_event
 		rand_num = rand(1..20)
 		if rand_num == 5
+			puts "------------------------------------------------------"
 			puts "You fall down the stairs, break your neck, and die :-("
+			puts "------------------------------------------------------"
 		elsif rand_num == 6
+			puts "------------------------------------------------------"
 			puts "You find $1000 in your pocket!"
+			puts "------------------------------------------------------"
 			player.wallet.amount = player.wallet.amount + 1000
 			game_choice
 		else
