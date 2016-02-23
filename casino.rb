@@ -21,8 +21,9 @@ class Casino
 			puts player.name
 			puts player.wallet.show_wallet
 		end
-		main_menu
+		# GameMenu.new
 	end
 end
 
 casino = Casino.new
+menu = GameMenu.new

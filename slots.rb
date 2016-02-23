@@ -1,15 +1,5 @@
-# require_relative 'casino'
-
-def slots_start
-	
-
-	@slots_numbers = [rand(1..3), rand(1..3), rand(1..3)]
-	puts @slots_numbers
-
-
-
-end
-
+require_relative 'casino'
+require_relative 'game_menu'
 
 class Slots
 	attr_accessor :name, :wallet, :player
@@ -34,19 +24,21 @@ class Slots
 	def slots_start
 		slots_numbers = [rand(1..3), rand(1..3), rand(1..3)]
 		puts "#{slots_numbers[0]} * #{slots_numbers[1]} * #{slots_numbers[2]}"
-		slots_numbers
+		slots_logic(slots_numbers)
 	end
 	
 	def slots_logic(slots_numbers)
 		case slots_numbers
-			when 1, 1, 1
+			when [1, 1, 1]
 				puts "Congratulations, you won!"
-			when 2, 2, 2
+				# Bet Logic, if I win or lose need to build this
+			when [2, 2, 2]
 				puts "Congratulations, you won!"
-			when 3, 3, 3
+			when [3, 3, 3]
 				puts "Congratulations, you won!"	
 			else 
-				puts "You lost! After losing, your new wallet balance is $#{wallet.amount}"
+				puts "You lost! After losing, your new wallet balance is less $-#{@bet}"
+				# To do logic for losing
 		end
 		puts "Would you like to play again (y/n)?"
 		yes_no = gets.strip

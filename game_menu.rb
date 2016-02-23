@@ -1,13 +1,9 @@
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 require_relative 'hi_lo'
 require_relative 'slots'
 
-class Game_Menu
+class GameMenu
 
-	def main_menu
+	def initialize
 		puts "Welcome inside the Casino! What game would you like to play first?:"
 		puts "Please make your game selection via by typing 1 or 2"
 		puts "1: Hi-Low"
@@ -25,10 +21,7 @@ class Game_Menu
 			else
 				puts "Please make a selection between 1 - 2!"
 		end
-		main_menu
+		GameMenu.new
 	end
 end
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
