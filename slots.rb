@@ -1,7 +1,7 @@
 require_relative 'player'
 
 class Slots
-	
+
 	def initialize(player)
 		@player = player
 		start
@@ -51,7 +51,7 @@ class Slots
 		puts "#{slots_numbers[0]} * #{slots_numbers[1]} * #{slots_numbers[2]}"
 		slots_logic(slots_numbers)
 	end
-	
+
 	def slots_logic(slots_numbers)
 		case slots_numbers
 			when [1, 1, 1]
@@ -63,7 +63,7 @@ class Slots
 			when [3, 3, 3]
 				puts "Congratulations, you won!"
 				winner
-			else 
+			else
 				puts "You lost! How sad, am I right....."
 				loser
 		end
@@ -72,7 +72,7 @@ class Slots
 		if yes_no == "y"
 			start
 		elsif yes_no == "n"
-			
+
 		else
 			puts "Type either 'y' or 'n' to continue playing or to quit....it's simple stuff here"
 		end
