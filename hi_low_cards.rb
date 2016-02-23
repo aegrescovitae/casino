@@ -48,14 +48,14 @@ def input_hilo
   input_hilo = gets.strip
   if input_hilo == 'higher'
     random_card_2
-    if @random_card_1.rank < @random_card_2.rank
+    if @random_card_1.rank > @random_card_2.rank
       winner
     else
       rekt
     end
   elsif input_hilo == 'lower'
     random_card_2
-    if @random_card_1.rank > @random_card_2.rank
+    if @random_card_1.rank < @random_card_2.rank
       winner
     elsif
       rekt
@@ -78,4 +78,5 @@ def rekt
   puts "REKT"
   @player.wallet.amount = @player.wallet.amount - @bet
   puts "Wallet: #{@player.wallet.amount}"
+  menu_options
 end
