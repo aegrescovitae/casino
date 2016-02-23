@@ -1,6 +1,6 @@
 require 'pry'
 require_relative 'player'
-require_relative 'hi_lo'
+require_relative 'hi_low_numbers'
 require_relative 'hi_low_cards'
 require_relative 'hi_low_die'
 
@@ -15,7 +15,7 @@ class Casino
 
 	def game_menu
 		puts "-- GAMES --"
-		puts "1: HiLo"
+		puts "1: HiLo with Numbers"
 		puts "2: HiLo With Cards"
 		puts "3: HiLo With Dice"
 		puts "4: Wallet"
@@ -27,7 +27,7 @@ class Casino
 		input = gets.strip.to_i
 		case input
 		when 1
-			HiLo.new(player)
+			HiLoNumbers.new(player)
 		when 2
 			HiLoCards.new(player)
 		when 3
