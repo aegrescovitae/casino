@@ -20,5 +20,12 @@ class Deck
        @cards << Card.new(@ranks[i], suit, color)
      end
    end
+ 
  end
+
+ def draw_card
+   @cards.shuffle.pop
+
+ end
+
 end
