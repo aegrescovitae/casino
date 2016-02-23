@@ -37,7 +37,9 @@ class Casino
 		when 4
 			Slots.new(player)
 		when 5
-			puts "Wallet: $#{player.wallet.amount}"
+      puts "------------------------------"
+      puts "Wallet: $#{player.wallet.amount.to_f}"
+      puts "------------------------------"
 		when 6
 			exit
 		else
