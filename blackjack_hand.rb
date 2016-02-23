@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 require_relative 'b_deck'
 require_relative 'dealer_hand'
-
 
 class BlackHand
 
@@ -10,9 +8,7 @@ class BlackHand
   play_game
   end
 
-
   def play_game
-
     @player_cards = []
     @total_player = 0
     @total_dealer = 0
@@ -56,11 +52,8 @@ class BlackHand
     puts "Do you want another card? (y/n)"
     puts "-------------------------------"
     answ = gets.strip
-
     if answ == 'y'
-
       add_card
-
         @player_cards.each do |i|
         @total_player += @deck.card_value(i, @player_cards)
       end
@@ -92,7 +85,6 @@ class BlackHand
         hit_me
       end
     end
-
   end
 
   def add_card
@@ -103,7 +95,6 @@ class BlackHand
       sleep 2
       puts "The player's cards are..."
       puts @player_cards
-
     if @total_dealer >= 17
       puts
       puts "The dealer stays."
@@ -112,7 +103,6 @@ class BlackHand
       puts "The dealers cards are..."
       @dealer.hit_you
     end
-
   end
 
 
@@ -143,7 +133,6 @@ class BlackHand
     puts @player_cards
     @player.wallet.amount += @bet_black
     puts "Your wallet now holds $#{@player.wallet.amount}"
-
     puts "------------------------------------------------------"
     puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     puts "------------------------------------------------------"
@@ -184,47 +173,6 @@ class BlackHand
       puts "****************************************"
       start
     else
-
     end
   end
 end
-=======
-require_relative 'card'
-
-class Black_hand
-  attr_accessor :players
-  
-  def intialize
-  @players = 2
-  end
-
-  def deal_hand
-    for players.each do
-      card1 = deck.draw_card
-      card2 = deck.draw_card
-      num1 = card_value(card1)
-      num2 = card_value(card2)
-      @sum = num1 + num2
-      puts card1
-      puts card2
-      puts "The sum of the two cards is #{sum}"
-    end
-  end
-
-
-
-  def card_value(card)
-    case deck.ranks
-       when 'A'
-        @card_value = 1
-      when 'J', 'Q', 'K'
-        @card_value = 10
-      else
-        @card_value = deck.ranks.to_i
-     end
-     card_value
-   end
-end
-
-db = Black_hand.new
->>>>>>> 2c129fc96899f273c2e3a82a39e47e3f1444026b
