@@ -8,4 +8,8 @@ class Card
    @suit = suit
    @color = color
  end
+
+ def to_s
+ 	return "#{@rank} #{@suit} #{@color}"
+ end
 end
