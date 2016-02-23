@@ -1,34 +1,17 @@
 require_relative 'b_deck'
 require_relative 'dealer_hand'
-require_relative 'player'
 
 
-class Black_Hand
-  
-  def intialize(player)
+class BlackHand
+
+  def initialize(player)
   @player = player
   play_game
   end
-   def start
-    puts "Welcome to Slots #{@player.name}!"
-    puts "Your wallet currently has $#{@player.wallet.amount}"
-    puts "Please enter your bet/wager:"
-    @bet_black = gets.strip.to_f
-    if @player.wallet.amount < @bet_black
-      puts "****************************************"
-      puts "You cannnot bet more money than you have. If you try to rip this Casino off"
-      puts "the mafia will break your legs and pillage your village with the"
-      puts "wrath of a thousand empires, and you will know pain."
-      puts "Please make another wager...."
-      puts "****************************************"
-      start
-    else
-      play
-    end
-  end
+
 
   def play_game
-    
+
     @player_cards = []
     @total_player = 0
     @total_dealer = 0
@@ -62,7 +45,7 @@ class Black_Hand
     puts "The second card is hidden"
     puts "---------------------------------------"
     hit_me
-  end 
+  end
 
   def hit_me
     sleep 1
@@ -72,11 +55,11 @@ class Black_Hand
     puts "Do you want another card? (y/n)"
     puts "-------------------------------"
     answ = gets.strip
-    
+
     if answ == 'y'
-      
+
       add_card
-       
+
         @player_cards.each do |i|
         @total_player += @deck.card_value(i, @player_cards)
       end
@@ -86,31 +69,31 @@ class Black_Hand
       win_lose(@total_player, @total_dealer)
 
       # hit_me
-    
+
     elsif answ == 'n'
       check_value(@player_cards, @dealer.dealer_cards)
       if @total_dealer >= 17
-       
+
         win_lose(@total_player, @total_dealer)
-      elsif 
+      elsif
         @total_dealer < 17
         @dealer.hit_you
-         
+
           if @total_dealer < 17
             check_value(@player_cards, @dealer.dealer_cards)
             hit_me
           elsif @total_dealer > 17
             check_value(@player_cards, @dealer.dealer_cards)
-            win_lose(@total_player, @total_dealer) 
+            win_lose(@total_player, @total_dealer)
           end
       else
         puts "Invalid input"
         hit_me
       end
     end
-  
+
   end
-  
+
   def add_card
     new_card = @deck.draw_card
       @player_cards << new_card
@@ -119,7 +102,7 @@ class Black_Hand
       sleep 2
       puts "The player's cards are..."
       puts @player_cards
-    
+
     if @total_dealer >= 17
       puts
       puts "The dealer stays."
@@ -128,9 +111,9 @@ class Black_Hand
       puts "The dealers cards are..."
       @dealer.hit_you
     end
-  
+
   end
- 
+
 
   def win_lose (player_total, dealer_total)
     if player_total == 21
@@ -147,7 +130,7 @@ class Black_Hand
       hit_me
     end
   end
-  
+
   def win
     puts "------------------------------------------------------"
     puts "$$$$$$$$$$$$$$$$$$$$$$ You Win! $$$$$$$$$$$$$$$$$$$$$$"
@@ -190,8 +173,17 @@ class Black_Hand
       end
   end
 
+  def start
+    puts "Your wallet currently has $#{@player.wallet.amount}"
+    puts "Please enter your bet"
+    @bet_black = gets.strip.to_f
+    if @player.wallet.amount < @bet_black
+      puts "****************************************"
+      puts "You cannnot bet more money than you have."
+      puts "****************************************"
+      start
+    else
+
+    end
+  end
 end
-
-
-db = Black_Hand.new
-db.play_game

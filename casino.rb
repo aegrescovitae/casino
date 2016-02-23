@@ -11,7 +11,7 @@ class Casino
 	attr_accessor :player
 
 	def initialize
-    puts "Welcome to the " + "Casino!".colorize(:blue)
+    puts "Welcome to the " + "Sioux Royal River Casino!".colorize(:blue)
 		@player = Player.new
 		game_menu
 	end
@@ -22,7 +22,7 @@ class Casino
 		puts "2: HiLo With Cards"
 		puts "3: HiLo With Dice"
 		puts "4: Slots"
-    puts "5: Black Jack"
+		puts "5: Black Jack"
 		puts "6: Wallet"
 		puts "7: Exit"
 		random_event
@@ -40,7 +40,7 @@ class Casino
 		when 4
 			Slots.new(player)
     when 5
-      Black_Hand.new(player)
+      BlackHand.new(player)
 		when 6
       puts "------------------------------"
       puts "Wallet: $#{player.wallet.amount.to_f}"
