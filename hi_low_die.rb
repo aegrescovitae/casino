@@ -1,10 +1,10 @@
 require_relative 'dice'
+require_relative 'player'
 
 class HiLoDie
-  attr_accessor :sides
 
-  def initialize
-    @sides = sides
+  def initialize(player)
+    @player = player
     hi_lo_die_menu
   end
 end
@@ -16,7 +16,7 @@ end
 
 def hi_lo_die_menu
   new_rolls
-  puts "Welcome to HiLo with DICE!"
+  puts "Welcome to HiLo with DICE, #{@player.name}!"
   bet_message
 end
 
@@ -27,7 +27,7 @@ def bet_message
 end
 
 def input_bet
-  input = gets.strip
+  input = gets.strip.to_f
   @bet = input
   first_die
 end
@@ -76,24 +76,21 @@ def lower
   elsif
     puts "Die 2: #{@die_2}"
     @die_1 < @die_2
-    rekt
   else
+    rekt
   end
 end
 
 def winner
   puts "WINNER!"
-  #@player.wallet.amount = @player.wallet.amount + @bet
-  #puts "Wallet: #{@player.wallet.amount}"
+  @player.wallet.amount = @player.wallet.amount + @bet
+  puts "Wallet: #{@player.wallet.amount}"
   hi_lo_die_menu
 end
 
 def rekt
   puts "REKT"
-  #@player.wallet.amount = @player.wallet.amount - @bet
-  #puts "Wallet: #{@player.wallet.amount}"
+  @player.wallet.amount = @player.wallet.amount - @bet
+  puts "Wallet: #{@player.wallet.amount}"
   hi_lo_die_menu
 end
-
-
-  endgame = HiLoDie.new
