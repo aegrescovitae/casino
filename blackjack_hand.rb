@@ -1,6 +1,6 @@
 require_relative 'b_deck'
 require_relative 'dealer_hand'
-
+require 'colorize'
 class BlackHand
 
   def initialize(player)
@@ -12,8 +12,8 @@ class BlackHand
     @player_cards = []
     @total_player = 0
     @total_dealer = 0
-    puts "-----------------Welcome to Black Jack!------------------"
-    puts "/////////////////////************////////////////////////"
+    puts "-----------------"+"Welcome to Black Jack!".colorize(:green)+"------------------"
+    puts "/////////////////////"+"************".colorize(:green)+"////////////////////////"
     puts "---------------------------------------------------------"
     puts
     start
@@ -29,7 +29,7 @@ class BlackHand
     @player_cards << player_card1
     @player_cards << player_card2
     puts "--------------------------------------"
-    puts "The player's cards are..."
+    puts "The player's cards are...".colorize(:green)
     puts @player_cards
     puts "--------------------------------------"
     sleep 1
@@ -37,7 +37,7 @@ class BlackHand
     puts
     puts "The dealer draws two cards for himself."
     puts "---------------------------------------"
-    puts "The dealer first card"
+    puts "The dealer first card".colorize(:red)
     puts @dealer.dealer_cards.last
     puts "The second card is hidden"
     puts "---------------------------------------"
@@ -124,34 +124,36 @@ class BlackHand
 
   def win
     puts "------------------------------------------------------"
-    puts "$$$$$$$$$$$$$$$$$$$$$$ You Win! $$$$$$$$$$$$$$$$$$$$$$"
+    puts "$$$$$$$$$$$$$$$$$$$$$$"+"You Win!".colorize(:green)+" $$$$$$$$$$$$$$$$$$$$$$"
     puts "------------------------------------------------------"
     puts "The dealer's cards"
     puts @dealer.dealer_cards
     puts
-    puts "The players cards"
+    puts "The players cards".colorize(:green)
     puts @player_cards
     @player.wallet.amount += @bet_black
     puts "Your wallet now holds $#{@player.wallet.amount}"
     puts "------------------------------------------------------"
     puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     puts "------------------------------------------------------"
+    you_want_to_quit
   end
 
   def lose
     puts "--------------------------------------------------------"
-    puts "~~~~~~~~~~~~~~~~~~~~~~ You Lose! ~~~~~~~~~~~~~~~~~~~~~~~"
+    puts "~~~~~~~~~~~~~~~~~~~~~~"+"You Lose!".colorize(:red)+"~~~~~~~~~~~~~~~~~~~~~~~"
     puts "--------------------------------------------------------"
-    puts "The dealer's cards"
+    puts "The dealer's cards".colorize(:red)
     puts @dealer.dealer_cards
     puts
-    puts "The players cards"
+    puts "The players cards".colorize(:green)
     puts @player_cards
     @player.wallet.amount += (-1 * @bet_black)
     puts "Your wallet now holds $#{@player.wallet.amount}"
     puts "--------------------------------------------------------"
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts "--------------------------------------------------------"
+    you_want_to_quit
   end
 
   def check_value (player_cards, dealer_cards)
@@ -174,5 +176,15 @@ class BlackHand
       start
     else
     end
+  end
+end
+
+def you_want_to_quit
+  puts "Continue Playing? (Y/N)"
+  input = gets.strip
+  if ['yes', 'y'].include?(input)
+    play_game
+  elsif ['no', 'n'].include?(input)
+  else
   end
 end
